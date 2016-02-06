@@ -1,2 +1,2 @@
 #!/bin/bash
-DEBUG=Not-another-food-blogger:* npm start
+DEBUG=recipes:* npm start

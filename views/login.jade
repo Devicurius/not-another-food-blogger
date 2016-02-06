@@ -1,0 +1,20 @@
+doctype html
+htm(lang="en")
+  head
+    include partials/_head
+  body
+    header
+      include partials/_header
+    main
+      div
+        h2 Login
+          form(method="post", action="/login")
+            div
+              label(for="email")Email
+              input(type="text", name="email", id="email")
+            div
+              label(for="email")Password
+              input(type="password", name="password", id="password")
+            input(type="submit")
+    footer
+      include partials/_footer

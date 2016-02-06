@@ -14,7 +14,7 @@ var flash = require('connect-flash');
 // Routes
 var homeRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var todosRouter = require('./routes/recipes');
+var recipesRouter = require('./routes/recipes');
 
 var app = express();
 
@@ -45,7 +45,6 @@ app.use(function (req, res, next) {
   global.currentUser = req.user;
   next();
 });
-
 
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
@@ -85,7 +84,7 @@ app.use(function(err, req, res, next) {
 console.log('Running in %s mode', app.get('env'));
 
 module.exports = app;
-Status API Training Shop Blog About Pricing
+
 
 
 
