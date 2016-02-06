@@ -1,0 +1,31 @@
+{
+  "name": "not-another-food-blogger",
+  "version": "1.0.0",
+  "description": "\"Create a  balsamic.amborosial.nectarous blog-post style recipe without stepping foot in the kitchen.\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devicurius/not-another-food-blogger.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "javascript",
+    "jade",
+    "html",
+    "sass",
+    "css"
+  ],
+  "author": "Steven Bell, Katie Owen, Anthony Sims Jr.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devicurius/not-another-food-blogger/issues"
+  },
+  "homepage": "https://github.com/Devicurius/not-another-food-blogger#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
