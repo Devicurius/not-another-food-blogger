@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+head
+  include ../partials/_head
+body.container-fluid
+  header
+    include ../partials/_header
+  main
+    div
+      h3
+        | Recipes:
+        script.
+          recipes.forEach(function(recipe)
+        h4
+          form(method="POST" action="/recipes/")
+          script.
+            recipe._id?_method=DELETE
+          a(href="/recipes/recipe._id")
+          script.
+            recipe.title + ' - ' + recipe.completed
+          button.btn.btn-wx.btn-danger(type="submit")
+            | Delete
+    a.btn.btn-primary(href="/recipes/new") New
+footer
+    include ../partials/_footer
