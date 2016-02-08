@@ -1,8 +1,18 @@
 var mongoose = require('mongoose');
 
-var RecipeSchema = new mongoose.Schema({
-  title:     { type: String, required: true },
-  completed: { type: Boolean, required: true }
+var RecipeSchema = mongoose.Schema({
+  recipeName: String,
+  lorem: String,
+  ingredients: String,
+  instructions: String,
+  // // PAGE ELEMENTS INDEPENDENT OF USER CHOICES
+  // stylesheet: String,
+  // blogTitle: String,
+  // writer: String,
+  // writerImage: String,
+  // writerBio: String,
+  // // USER INFO
+  userId: String
 });
 
 module.exports = mongoose.model('Recipe', RecipeSchema);
