@@ -5,14 +5,13 @@ var RecipeSchema = mongoose.Schema({
   lorem: String,
   ingredients: String,
   instructions: String,
+
   // // PAGE ELEMENTS INDEPENDENT OF USER CHOICES
   // stylesheet: String,
   // blogTitle: String,
   // writer: String,
   // writerImage: String,
   // writerBio: String,
-  // // USER INFO
-  userId: String
 });
 
 module.exports = mongoose.model('Recipe', RecipeSchema);
