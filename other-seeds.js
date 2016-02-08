@@ -23,8 +23,8 @@ PageElements.remove({})
     console.log('creating some new page elements...');
     var elements = new PageElements({
       food: {
-        meat: ["Skirt Steak","Tasso Ham","Cornish Hen Breast"],
-        veggie: ["Eggplant", "Tofu", "Butternut Squash"],
+        meat: ["Fatback", "Chicken Livers", "Cube Steak"],
+        veggie: ["Okra", "Tofu", "Butternut Squash"],
         seafood: ["Monkfish", "Softshell Crab", "Venus Clams"]
       }
     });

@@ -12,6 +12,11 @@ var RecipeSchema = mongoose.Schema({
   // writer: String,
   // writerImage: String,
   // writerBio: String,
+
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 module.exports = mongoose.model('Recipe', RecipeSchema);
