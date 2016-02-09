@@ -1,81 +1,44 @@
+var mongoose = require('mongoose');
+var PageElements = require('./models/page-elements');
 
+mongoose.connect('mongodb://localhost/page-elements');
 
-db.dropDatabase();
+// our app will not exit until we have disconnected from the db.
+function quit() {
+  mongoose.disconnect();
+  console.log('\nDISCONNECTING');
+}
 
-var seedPageElements = {
-  food: [{
-    meat: "Skirt Steak"
-  }, {
-    meat: "Tasso Ham"
-  }, {
-    meat: "Cornish Hen Breast"
-  }, {
-    veggie: "Eggplant"
-  }, {
-    veggie: "Tofu"
-  }, {
-    veggie: "Butternut Squash"
-  }, {
-    seafood: "Monkfish"
-  }, {
-    seafood: "Softshell Crab"
-  }, {
-    seafood: "Venus Clams"
-  }, ],
-  snack: [{
-    sweet: "Oreos"
-  }, {
-    sweet: "Gummi Bears"
-  }, {
-    sweet: "Lucky Charms"
-  }, {
-    savory: "Doritos"
-  }, {
-    savory: "Tabbouleh"
-  }, {
-    savory: "Brie de Meaux"
-  }, {
-    healthy: "Grape Nuts"
-  }, {
-    healthy: "Flaxseed"
-  }, {
-    healthy: "Edamame Hommus"
-  }, ],
-  // snackImage: [],
-  cookMethod: [{
-    fast: "Flash-Fried"
-  }, {
-    fast: "Sauteed"
-  }, {
-    fast: "Microwaved"
-  }, {
-    slow: "Smoked"
-  }, {
-    slow: "Roasted"
-  }, {
-    slow: "Slow Cooker"
-  }, {
-    raw: "Pureed"
-  }, {
-    raw: "Sun-Dried"
-  }, {
-    raw: "Chopped"
-  }, ],
-  lorem: [
-    "Bacon ipsum dolor amet quis sirloin pork belly tempor, bacon meatball chuck beef swine leberkas ipsum cow. Aliquip proident drumstick kevin tenderloin veniam non in short ribs officia ea t-bone.",
-    "Fruitcake chocolate cake. Carrot cake cake chocolate cupcake lemon drops I love. Cookie cake sesame snaps donut cookie donut dragée marzipan. Gummi bears ice cream. Jujubes cake toffee gingerbread.",
-    "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini."
-  ],
-  ingredients: [],
-  instructions: [],
-  // PAGE ELEMENTS INDEPENDENT OF USER CHOICES
-  stylesheet: [
-    ""
-  ],
-  blogTitle: [],
-  writer: [],
-  writerImage: [],
-  writerBio: []
-};
+// a simple error handler
+function handleError(err) {
+  console.log('ERROR:', err);
+  quit();
+  return err;
+}
 
-db.PageElements.save(seedPageElements);
+console.log('removing old page elements...');
+PageElements.remove({})
+  .then(function() {
+    console.log('old page elements removed');
+    console.log('creating some new page elements...');
+    var elements = new PageElements({
+      food: {
+        meat: ["Fatback", "Chicken Livers", "Cube Steak"],
+        veggie: ["Okra", "Tofu", "Butternut Squash"],
+        seafood: ["Monkfish", "Softshell Crab", "Venus Clams"]
+      }
+    });
+    // elements.save();
+    return PageElements.create(elements);
+  })
+  .then(function(savedPageElements) {
+    console.log('PageElements have been saved');
+    return PageElements.find({});
+  })
+  .then(function(allPageElements) {
+    console.log('Printing all page elements...');
+    allPageElements.forEach(function(element) {
+      console.log(element);
+    });
+    quit();
+  });
