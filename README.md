@@ -16,6 +16,12 @@ do we want to remove this page if there is no admin function.  At the least
 we need to make this page show only the user signed in.
 *recipes/index.jade needs work to get the recipes to output correctly.
 * translate _header.jade from ejs to Jade
+* add .gitignore possible text:
+        ```# Mac OS X
+        .DS_Store
+        # Node.js
+        node_modules/
+        npm-debug.log```
 
 ##Questions for the team:
 * do we want to add admin feature to manage users?
