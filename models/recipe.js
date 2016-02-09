@@ -5,7 +5,9 @@ var RecipeSchema = mongoose.Schema({
   lorem: String,
   ingredients: String,
   instructions: String,
-
+  food: String,
+  snack: String,
+  cookingMethod: String,
   // // PAGE ELEMENTS INDEPENDENT OF USER CHOICES
   // stylesheet: String,
   // blogTitle: String,
