@@ -8,6 +8,7 @@ node
 
 
 #things to do
+* add authentication to the recipes
 * add oAuth with button - what will user modle with OAuth look like? which sites?
 * change the title of the index page (located in the index.js file) to reflect
 our actual title
