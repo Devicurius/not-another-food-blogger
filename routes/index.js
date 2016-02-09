@@ -24,8 +24,8 @@ router.post('/signup', function(req, res, next) {
 });
 
 // GET /login
-router.get('/login', function(req, res, next) {
-  res.render('login.jade', { message: req.flash() });
+router.get('/signin', function(req, res, next) {
+  res.render('signin.jade', { message: req.flash() });
 });
 
 // POST /login
