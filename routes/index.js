@@ -26,6 +26,8 @@ router.post('/signup', function(req, res, next) {
 // GET /login
 router.get('/signin', function(req, res, next) {
   res.render('signin.jade', { message: req.flash() });
+// REMOVE FLASH MESSAGE DUE TO SESSION DEPENDENCY CAUSING APP SERVER TO CRASH
+  // res.render('signin.jade');
 });
 
 // POST /login
